@@ -17,5 +17,5 @@ runs:
     - run: ./.github/scripts/envsubst.sh
       shell: bash
       env:
-        FILES: {{ inputs.files }}
-        PATTERNS: {{ inputs.patterns }}
+        FILES: ${{ inputs.files }}
+        PATTERNS: ${{ inputs.patterns }}
