@@ -1,0 +1,21 @@
+name: envsubst
+description: This is an action to run envsubst on a set of files
+author: Dominic Watson
+branding:
+  icon: ''
+  color: 'orange'
+inputs:
+  files:
+    description: One or more files, separated by a space, that will have envsubst performed on them.
+    required: true
+  patterns:
+    description: Restrict the substitution to a strict set of patterns, rather than attempting to match any patterns found. Patterns separated by a space.
+    required: false
+runs:
+  using: 'composite'
+  steps:
+    - run: ./.github/scripts/envsubst.sh
+      shell: bash
+      env:
+        FILES: {{ inputs.files }}
+        PATTERNS: {{ inputs.patterns }}
