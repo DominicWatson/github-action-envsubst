@@ -1,5 +1,5 @@
 name: inline-envsubst
-description: This is an action to run envsubst inline in a set of files. Relies on your workflow job running in Linux and uses no docker containers.
+description: This is an action to run envsubst inline in a set of files. Allows limiting patterns and does not use Docker.
 author: Dominic Watson
 branding:
   icon: 'repeat'
