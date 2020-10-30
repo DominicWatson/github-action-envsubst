@@ -1,15 +1,17 @@
-# Github action: Box Test
+# Github action: Inline envsubst
 
-This GitHub Action allows you to run [envsubst]() against a file/list of files, with optional pattern specificity.
+This GitHub Action allows you to run [envsubst](https://linux.die.net/man/1/envsubst) against a file/list of files, with optional pattern specificity.
 
-## Usage in Github actions workflow
+Relies on your workflow job running in a Linux VM and therefore does not use docker containers.
+
+## Example usage in Github actions workflow
 
 ```yml
 steps:
-  - name: Run tests
+  - name: Inject version number into files
     uses: dominicwatson/github-action-envsubst@v1
     with:
-      files: manifest.json package.json
+      files: manifest.json package.json static/bundle.mf
       patterns: $VERSION_NUMBER
     env:
       VERSION_NUMBER: ${{ steps.anotherstep.outputs.version_number }}
